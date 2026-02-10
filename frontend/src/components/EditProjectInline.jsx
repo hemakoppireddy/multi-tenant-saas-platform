@@ -47,20 +47,17 @@ export default function EditProjectInline({ project, onUpdated }) {
   return (
     <div className="inline-project-edit">
       {error && <div className="error">{error}</div>}
-
       <input
         type="text"
         value={name}
         placeholder="Project name"
         onChange={(e) => setName(e.target.value)}
       />
-
       <textarea
         value={description}
         placeholder="Project description"
         onChange={(e) => setDescription(e.target.value)}
       />
-
       <div className="inline-actions">
         <button
           type="button"
@@ -68,7 +65,6 @@ export default function EditProjectInline({ project, onUpdated }) {
         >
           Cancel
         </button>
-
         <button
           className="primary-btn"
           onClick={saveChanges}
