@@ -17,12 +17,9 @@ export default function Dashboard() {
   useEffect(() => {
     const loadDashboard = async () => {
       try {
-        // Load projects
         const projectRes = await api.get("/projects");
         const projectList = projectRes.data.data.projects || [];
         setProjects(projectList);
-
-        // Load tasks from ALL projects
         const taskRequests = projectList.map((p) =>
           api.get(`/projects/${p.id}/tasks`)
         );
@@ -38,8 +35,6 @@ export default function Dashboard() {
         );
 
         setAllTasks(tasksWithProject);
-
-        // My Tasks
         setMyTasks(
           tasksWithProject.filter(
             (task) => task.assignedTo?.id === user.id
@@ -69,7 +64,6 @@ export default function Dashboard() {
 
   return (
     <>
-
       <div className="dashboard-wrapper">
         <div className="dashboard-container">
           {/* HEADER */}
