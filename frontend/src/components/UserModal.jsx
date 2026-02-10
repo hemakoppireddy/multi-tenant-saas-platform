@@ -14,10 +14,8 @@ export default function UserModal({ user, onClose, onSaved }) {
     role: user?.role || "user",
     isActive: user?.isActive ?? true,
   });
-
   const handleSubmit = async (e) => {
   e.preventDefault();
-
   try {
     const payload = {
       email: form.email,
@@ -25,11 +23,9 @@ export default function UserModal({ user, onClose, onSaved }) {
       role: form.role,
       isActive: form.isActive,
     };
-
     if (!user) {
       payload.password = form.password;
     }
-
     if (user) {
       await api.put(`/users/${user.id}`, payload);
     } else {
