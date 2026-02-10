@@ -81,7 +81,6 @@ export default function TaskModal({ projectId, task, onClose, onSaved }) {
                 <option value="high">High</option>
               </select>
             </div>
-
             <div>
               <label>Due Date</label>
               <input
@@ -93,8 +92,6 @@ export default function TaskModal({ projectId, task, onClose, onSaved }) {
               />
             </div>
           </div>
-
-          {/* ACTIONS */}
           <div className="modal-actions">
             <button type="button" className="ghost-btn" onClick={onClose}>
               Cancel
