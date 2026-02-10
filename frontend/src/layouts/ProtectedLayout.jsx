@@ -4,13 +4,10 @@ import Navbar from "../components/Navbar";
 
 export default function ProtectedLayout({ children }) {
   const { user, loading } = useAuth();
-
   if (loading) return null;
-
   if (!user) {
     return <Navigate to="/login" replace />;
   }
-
   return (
     <>
       <Navbar />
