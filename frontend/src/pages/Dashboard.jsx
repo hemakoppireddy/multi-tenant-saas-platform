@@ -71,7 +71,6 @@ export default function Dashboard() {
             <h1>Dashboard</h1>
             <p>Welcome back, {user.fullName}</p>
           </div>
-
           {/* STATS */}
           <div className="stats-grid">
             <StatCard title="Total Projects" value={projects.length} />
@@ -87,7 +86,6 @@ export default function Dashboard() {
               type="warning"
             />
           </div>
-
           {/* RECENT PROJECTS */}
           <Section title="Recent Projects">
             <div className="project-grid">
@@ -108,7 +106,6 @@ export default function Dashboard() {
               ))}
             </div>
           </Section>
-
           {/* MY TASKS */}
           <Section title="My Tasks">
             {myTasks.length === 0 ? (

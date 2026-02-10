@@ -23,7 +23,6 @@ export default function Login() {
     setForm({ ...form, [name]: type === "checkbox" ? checked : value });
   };
 
-  // FRONTEND-ONLY FIX (BACKEND SAFE)
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
@@ -31,11 +30,10 @@ export default function Login() {
     try {
       setLoading(true);
 
-      // Transform payload to EXACT backend contract
       await login({
         email: form.email,
         password: form.password,
-        tenantSubdomain: form.subdomain, // BACKEND EXPECTS THIS
+        tenantSubdomain: form.subdomain, 
       });
 
       navigate("/dashboard");
@@ -75,7 +73,6 @@ export default function Login() {
               onChange={handleChange}
               required
             />
-
             <input
               type="password"
               name="password"
@@ -84,7 +81,6 @@ export default function Login() {
               onChange={handleChange}
               required
             />
-
             <input
               name="subdomain"
               placeholder="Tenant Subdomain"
@@ -92,7 +88,6 @@ export default function Login() {
               onChange={handleChange}
               required
             />
-
             <div className="auth-options">
               <input
                 type="checkbox"
