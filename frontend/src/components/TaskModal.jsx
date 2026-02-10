@@ -32,7 +32,6 @@ export default function TaskModal({ projectId, task, onClose, onSaved }) {
           <button className="close-btn" onClick={onClose}>×</button>
         </div>
         <form onSubmit={handleSubmit} className="task-form">
-          {/* TITLE */}
           <div className="form-group">
             <label>Task Title</label>
             <input
@@ -44,8 +43,6 @@ export default function TaskModal({ projectId, task, onClose, onSaved }) {
               }
             />
           </div>
-
-          {/* DESCRIPTION */}
           <div className="form-group">
             <label>Description</label>
             <textarea
@@ -56,8 +53,6 @@ export default function TaskModal({ projectId, task, onClose, onSaved }) {
               }
             />
           </div>
-
-          {/* GRID */}
           <div className="form-grid">
             <div>
               <label>Status</label>
