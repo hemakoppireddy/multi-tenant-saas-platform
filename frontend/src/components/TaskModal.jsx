@@ -27,13 +27,10 @@ export default function TaskModal({ projectId, task, onClose, onSaved }) {
   return (
     <div className="modal-backdrop">
       <div className="modal-card">
-        {/* HEADER */}
         <div className="modal-header">
           <h2>{task ? "Edit Task" : "Create Task"}</h2>
           <button className="close-btn" onClick={onClose}>×</button>
         </div>
-
-        {/* FORM */}
         <form onSubmit={handleSubmit} className="task-form">
           {/* TITLE */}
           <div className="form-group">
