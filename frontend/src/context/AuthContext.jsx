@@ -21,12 +21,10 @@ export const AuthProvider = ({ children }) => {
     } finally {
       localStorage.removeItem("token");
       setUser(null);
-      // Use navigate or window.location - window is safer for full clear
       window.location.href = "/login";
     }
   };
 
-  // VERIFY TOKEN ON LOAD
   const loadUser = async () => {
     try {
       const token = localStorage.getItem("token");
@@ -37,9 +35,6 @@ export const AuthProvider = ({ children }) => {
 
       const res = await api.get("/auth/me");
       
-      // ⚠️ SAFETY CHECK: 
-      // Sometimes APIs return { data: { user: {...} } } vs { data: { ... } }
-      // We check if the response data has a nested 'user' property or is the user itself.
       const userData = res.data.data.user ? res.data.data.user : res.data.data;
       
       console.log("Current User Role:", userData?.role); // Debugging
