@@ -10,7 +10,7 @@ export default function EditProjectInline({ project, onUpdated }) {
 
   const saveChanges = async () => {
     if (!name.trim()) {
-      setError("Project name is ");
+      setError("Project name is required");
       return;
     }
 
