@@ -12,12 +12,9 @@ export default function MyTasks() {
     const loadTasks = async () => {
       try {
         setLoading(true);
-
-        //  get projects
         const projectsRes = await api.get("/projects");
         const projects = projectsRes.data.data.projects || [];
 
-        // get tasks per project
         const taskRequests = projects.map(p =>
           api.get(`/projects/${p.id}/tasks`)
             .then(res =>
@@ -54,7 +51,6 @@ export default function MyTasks() {
 
       <div className="page-wrapper">
         <h1>My Tasks</h1>
-
         <div className="filters">
           <select value={status} onChange={e => setStatus(e.target.value)}>
             <option value="">All Status</option>
@@ -63,7 +59,6 @@ export default function MyTasks() {
             <option value="completed">Completed</option>
           </select>
         </div>
-
         {filtered.length === 0 ? (
           <div className="empty-state">No tasks assigned to you</div>
         ) : (
