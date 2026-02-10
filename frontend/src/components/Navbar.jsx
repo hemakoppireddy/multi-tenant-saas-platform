@@ -27,12 +27,10 @@ export default function Navbar() {
         </span>
       </div>
 
-      {/* HAMBURGER (MOBILE) */}
       <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
         ☰
       </div>
 
-      {/* NAV LINKS */}
       <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
         <li>
           <Link to="/dashboard" onClick={() => setMenuOpen(false)}>
@@ -46,7 +44,6 @@ export default function Navbar() {
           </Link>
         </li>
 
-        {/* REAL TASKS PAGE */}
         {(role === "tenant_admin" || role === "super_admin") && (
           <li>
             {/* <Link to="/tasks" onClick={() => setMenuOpen(false)}>
