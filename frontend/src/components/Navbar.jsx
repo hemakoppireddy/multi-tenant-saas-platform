@@ -46,9 +46,6 @@ export default function Navbar() {
 
         {(role === "tenant_admin" || role === "super_admin") && (
           <li>
-            {/* <Link to="/tasks" onClick={() => setMenuOpen(false)}>
-              Tasks
-            </Link> */}
             <NavLink
               to="/tasks"
               className={({ isActive }) => (isActive ? "active-link" : "")}
@@ -74,8 +71,7 @@ export default function Navbar() {
           </li>
         )}
       </ul>
-
-      {/* USER DROPDOWN */}
+      
       <div className="user-menu" onClick={() => setDropdownOpen(!dropdownOpen)}>
         <span className="user-name">
           {user?.fullName} <small>({role})</small>
