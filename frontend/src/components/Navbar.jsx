@@ -20,7 +20,6 @@ export default function Navbar() {
 
   return (
     <nav className="navbar">
-      {/* LEFT */}
       <div className="navbar-left">
         <span className="logo" onClick={() => navigate("/dashboard")}>
           MultiTenant SaaS
@@ -71,7 +70,7 @@ export default function Navbar() {
           </li>
         )}
       </ul>
-      
+
       <div className="user-menu" onClick={() => setDropdownOpen(!dropdownOpen)}>
         <span className="user-name">
           {user?.fullName} <small>({role})</small>
