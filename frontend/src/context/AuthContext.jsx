@@ -7,15 +7,12 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // LOGIN
   const login = async (data) => {
     const res = await api.post("/auth/login", data);
     localStorage.setItem("token", res.data.data.token);
-    // Ensure we are setting the user object correctly
     setUser(res.data.data.user);
   };
 
-  // LOGOUT
   const logout = async () => {
     try {
       await api.post("/auth/logout");
