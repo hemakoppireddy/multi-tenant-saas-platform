@@ -62,7 +62,6 @@ export default function UserModal({ user, onClose, onSaved }) {
             value={form.email}
             onChange={(e) => setForm({ ...form, email: e.target.value })}
           />
-
           {!user && (
             <input
               type="password"
@@ -72,7 +71,6 @@ export default function UserModal({ user, onClose, onSaved }) {
               onChange={(e) => setForm({ ...form, password: e.target.value })}
             />
           )}
-
           <select
             value={form.role}
             onChange={(e) => setForm({ ...form, role: e.target.value })}
@@ -80,7 +78,6 @@ export default function UserModal({ user, onClose, onSaved }) {
             <option value="user">User</option>
             <option value="tenant_admin">Tenant Admin</option>
           </select>
-
           <div className="modal-checkbox">
             <input
               type="checkbox"
@@ -90,7 +87,6 @@ export default function UserModal({ user, onClose, onSaved }) {
             />
             <label htmlFor="isActive">Active</label>
           </div>
-
           <div className="modal-actions">
             <button type="button" onClick={onClose}>
               Cancel
