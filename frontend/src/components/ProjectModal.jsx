@@ -57,7 +57,6 @@ export default function ProjectModal({ project, onClose, onSaved }) {
               }
             />
           </div>
-
           <div className="form-group">
             <label>Status</label>
             <select
@@ -71,7 +70,6 @@ export default function ProjectModal({ project, onClose, onSaved }) {
               <option value="completed">Completed</option>
             </select>
           </div>
-
           <div className="modal-actions">
             <button
               type="button"
@@ -80,7 +78,6 @@ export default function ProjectModal({ project, onClose, onSaved }) {
             >
               Cancel
             </button>
-
             <button type="submit" className="btn-primary">
               Save Project
             </button>
