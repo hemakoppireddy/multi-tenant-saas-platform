@@ -23,7 +23,7 @@ export default function EditProjectInline({ project, onUpdated }) {
       setEditing(false);
       onUpdated(); 
     } catch (err) {
-      setError("Failed to update ");
+      setError("Failed to update project");
     } finally {
       setLoading(false);
     }
