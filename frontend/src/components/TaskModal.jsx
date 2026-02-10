@@ -10,16 +10,13 @@ export default function TaskModal({ projectId, task, onClose, onSaved }) {
     assignedTo: task?.assignedTo?.id || "",
     dueDate: task?.dueDate || "",
   });
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     if (task) {
       await api.put(`/tasks/${task.id}`, form);
     } else {
       await api.post(`/projects/${projectId}/tasks`, form);
     }
-
     onSaved();
     onClose();
   };
