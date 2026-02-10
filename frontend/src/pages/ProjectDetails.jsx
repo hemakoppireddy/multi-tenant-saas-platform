@@ -31,7 +31,6 @@ export default function ProjectDetails() {
   try {
     setLoading(true);
 
-    // Get all projects (backend-supported)
     const projectsRes = await api.get("/projects");
     const projects = projectsRes.data.data.projects || [];
 
@@ -43,8 +42,7 @@ export default function ProjectDetails() {
     }
 
     setProject(foundProject);
-
-    // Get tasks for this project
+  
     const taskRes = await api.get(`/projects/${projectId}/tasks`);
     setTasks(taskRes.data.data.tasks || []);
 
@@ -112,7 +110,6 @@ export default function ProjectDetails() {
                 {project.description || "No description"}
               </p>
             </div>
-
             <div className="project-actions">
               <span className={`status ${project.status}`}>
                 {project.status}
@@ -151,7 +148,6 @@ export default function ProjectDetails() {
                 <option value="in_progress">In Progress</option>
                 <option value="completed">Completed</option>
               </select>
-
               <select
                 value={filters.priority}
                 onChange={(e) =>
@@ -163,7 +159,6 @@ export default function ProjectDetails() {
                 <option value="medium">Medium</option>
                 <option value="high">High</option>
               </select>
-
               <select
                 value={filters.assignedTo}
                 onChange={(e) =>
@@ -194,7 +189,6 @@ export default function ProjectDetails() {
                     <th>Actions</th>
                   </tr>
                 </thead>
-
                 <tbody>
                   {filteredTasks.map((task) => (
                     <tr key={task.id}>
@@ -205,23 +199,19 @@ export default function ProjectDetails() {
                           {task.status}
                         </span>
                       </td>
-
                       <td data-label="Priority">
                         <span className={`priority ${task.priority}`}>
                           {task.priority}
                         </span>
                       </td>
-
                       <td data-label="Assigned">
                         {task.assignedTo?.fullName || "—"}
                       </td>
-
                       <td data-label="Due">
                         {task.dueDate
                           ? new Date(task.dueDate).toLocaleDateString()
                           : "—"}
                       </td>
-
                       <td data-label="Actions" className="task-actions">
                         <select
                           value={task.status}
@@ -233,7 +223,6 @@ export default function ProjectDetails() {
                           <option value="in_progress">In Progress</option>
                           <option value="completed">Completed</option>
                         </select>
-
                         <button
                           onClick={() => {
                             setEditingTask(task);
@@ -242,7 +231,6 @@ export default function ProjectDetails() {
                         >
                           Edit
                         </button>
-
                         <button
                           className="danger-btn"
                           onClick={() => deleteTask(task.id)}
