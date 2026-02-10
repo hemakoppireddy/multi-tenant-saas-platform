@@ -31,8 +31,6 @@ export default function UserModal({ user, onClose, onSaved }) {
     } else {
       await api.post(`/tenants/${currentUser.tenant.id}/users`, payload);
     }
-
-
     onSaved();
     onClose();
   } catch (err) {
@@ -44,7 +42,6 @@ export default function UserModal({ user, onClose, onSaved }) {
   }
 
 };
-
 
   return (
     <div className="modal-backdrop">
@@ -58,7 +55,6 @@ export default function UserModal({ user, onClose, onSaved }) {
             value={form.fullName}
             onChange={(e) => setForm({ ...form, fullName: e.target.value })}
           />
-
           <input
             type="email"
             placeholder="Email"
